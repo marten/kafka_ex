@@ -46,9 +46,6 @@ defmodule KafkaEx.NetworkClient do
   end
 
   def format_host(host) do
-    case Regex.scan(~r/\d+/, host) do
-      match_data = [_, _, _, _] -> match_data |> List.flatten |> Enum.map(&String.to_integer/1) |> List.to_tuple
-      _ -> to_char_list(host)
-    end
+    to_char_list(host)
   end
 end
